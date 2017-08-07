@@ -1,15 +1,13 @@
 
 package org.usfirst.frc.team3130.robot;
 
+import org.usfirst.frc.team3130.robot.subsystems.*;
+
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
-import org.usfirst.frc.team3130.robot.commands.ExampleCommand;
-import org.usfirst.frc.team3130.robot.subsystems.ExampleSubsystem;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -20,9 +18,12 @@ import org.usfirst.frc.team3130.robot.subsystems.ExampleSubsystem;
  */
 public class Robot extends IterativeRobot {
 
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
-	public static OI oi;
-
+	public static OI oi = OI.getInstance();
+	public static BasicCanTalon LAdj;
+	public static BasicCanTalon RAdj;
+	public static BasicCanTalon feeder;
+	public static Shooter shooter = Shooter.getInstance();
+	
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 
@@ -32,10 +33,14 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
-		oi = new OI();
-		chooser.addDefault("Default Auto", new ExampleCommand());
+		LAdj = new BasicCanTalon(RobotMap.CAN_LADJ, "Adj", "Left");
+		RAdj = new BasicCanTalon(RobotMap.CAN_RADJ, "Adj", "Right");
+		feeder = new BasicCanTalon(RobotMap.CAN_FEEDER, "Shooter", "Feeder");
+		shooter = Shooter.getInstance();
+		
+		//chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
-		SmartDashboard.putData("Auto mode", chooser);
+		//SmartDashboard.putData("Auto mode", chooser);
 	}
 
 	/**
