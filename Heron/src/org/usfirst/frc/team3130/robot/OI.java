@@ -43,10 +43,10 @@ public class OI {
 		feeder.setSpeed(Preferences.getInstance().getDouble("Feeder", .5));
 		
 		RAdj = new ControlBasicCanTalon(Robot.RAdj);
-		RAdj.setSpeed(Preferences.getInstance().getDouble("Adj", .33));
+		RAdj.setSpeed(Preferences.getInstance().getDouble("Adj", .42));
 		
 		LAdj = new ControlBasicCanTalon(Robot.LAdj);
-		LAdj.setSpeed(Preferences.getInstance().getDouble("Adj", .33));
+		LAdj.setSpeed(Preferences.getInstance().getDouble("Adj", .42));
 		
 		runShooter.whileHeld(new RunShooter());
 		runFeeder.whileHeld(feeder);
