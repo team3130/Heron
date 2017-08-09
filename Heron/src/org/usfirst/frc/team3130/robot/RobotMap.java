@@ -48,5 +48,6 @@ public class RobotMap {
 
 	//use buttons
 	public static final int BTN_RUNADJ = LST_BTN_A;
-	public static final int BTN_SHOOT = LST_BTN_B;
+	public static final int BTN_SHOOT = LST_BTN_Y;
+	public static final int BTN_FEED = LST_BTN_X;
 }
