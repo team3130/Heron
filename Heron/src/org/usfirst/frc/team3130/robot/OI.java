@@ -35,7 +35,7 @@ public class OI {
 		gamepad = new Joystick(0);
 		
 		runShooter = new JoystickButton(gamepad, RobotMap.BTN_SHOOT);
-		runFeeder = new JoystickButton(gamepad, RobotMap.BTN_SHOOT);
+		runFeeder = new JoystickButton(gamepad, RobotMap.BTN_FEED);
 		runLAdj = new JoystickButton(gamepad, RobotMap.BTN_RUNADJ);
 		runRAdj = new JoystickButton(gamepad, RobotMap.BTN_RUNADJ);
 		
